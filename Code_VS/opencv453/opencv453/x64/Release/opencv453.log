@@ -1,0 +1,50 @@
+﻿  PolygonTriangulation.cpp
+D:\Files\learningMaterials\firstSemesterOfJuniorYear\computationGeometry\Code_VS\opencv453\opencv453\PolygonTriangulation.cpp(15,44): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+D:\Files\learningMaterials\firstSemesterOfJuniorYear\computationGeometry\Code_VS\opencv453\opencv453\PolygonTriangulation.cpp(15,41): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+D:\Files\learningMaterials\firstSemesterOfJuniorYear\computationGeometry\Code_VS\opencv453\opencv453\PolygonTriangulation.cpp(37,46): warning C4244: “参数”: 从“double”转换到“_Tp”，可能丢失数据
+          with
+          [
+              _Tp=int
+          ]
+D:\Files\learningMaterials\firstSemesterOfJuniorYear\computationGeometry\Code_VS\opencv453\opencv453\PolygonTriangulation.cpp(37,42): warning C4244: “参数”: 从“double”转换到“_Tp”，可能丢失数据
+          with
+          [
+              _Tp=int
+          ]
+D:\Files\learningMaterials\firstSemesterOfJuniorYear\computationGeometry\Code_VS\opencv453\opencv453\PolygonTriangulation.cpp(37,61): warning C4244: “参数”: 从“double”转换到“_Tp”，可能丢失数据
+          with
+          [
+              _Tp=int
+          ]
+D:\Files\learningMaterials\firstSemesterOfJuniorYear\computationGeometry\Code_VS\opencv453\opencv453\PolygonTriangulation.cpp(37,57): warning C4244: “参数”: 从“double”转换到“_Tp”，可能丢失数据
+          with
+          [
+              _Tp=int
+          ]
+D:\Files\learningMaterials\firstSemesterOfJuniorYear\computationGeometry\Code_VS\opencv453\opencv453\PolygonTriangulation.cpp(46,27): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\Files\learningMaterials\firstSemesterOfJuniorYear\computationGeometry\Code_VS\opencv453\opencv453\PolygonTriangulation.cpp(54,46): warning C4244: “参数”: 从“double”转换到“_Tp”，可能丢失数据
+          with
+          [
+              _Tp=int
+          ]
+D:\Files\learningMaterials\firstSemesterOfJuniorYear\computationGeometry\Code_VS\opencv453\opencv453\PolygonTriangulation.cpp(54,42): warning C4244: “参数”: 从“double”转换到“_Tp”，可能丢失数据
+          with
+          [
+              _Tp=int
+          ]
+D:\Files\learningMaterials\firstSemesterOfJuniorYear\computationGeometry\Code_VS\opencv453\opencv453\PolygonTriangulation.cpp(54,61): warning C4244: “参数”: 从“double”转换到“_Tp”，可能丢失数据
+          with
+          [
+              _Tp=int
+          ]
+D:\Files\learningMaterials\firstSemesterOfJuniorYear\computationGeometry\Code_VS\opencv453\opencv453\PolygonTriangulation.cpp(54,57): warning C4244: “参数”: 从“double”转换到“_Tp”，可能丢失数据
+          with
+          [
+              _Tp=int
+          ]
+  正在生成代码
+  1 of 311 functions ( 0.3%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  已完成代码的生成
+  opencv453.vcxproj -> D:\Files\learningMaterials\firstSemesterOfJuniorYear\computationGeometry\Code_VS\opencv453\x64\Release\opencv453.exe
