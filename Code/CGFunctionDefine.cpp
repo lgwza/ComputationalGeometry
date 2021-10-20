@@ -11,28 +11,28 @@ void MyLine(Mat& img, const Point& start, const Point& end, const Scalar& color)
     int lineType = LINE_8;
     line(img, start, end, color, thickness, lineType);
 }
-// ÏòÁ¿ ab ºÍ ÏòÁ¿ ac ×é³ÉµÄÈı½ÇĞÎÓĞÏòÃæ»ıµÄÁ½±¶
+// å‘é‡ ab å’Œ å‘é‡ ac ç»„æˆçš„ä¸‰è§’å½¢æœ‰å‘é¢ç§¯çš„ä¸¤å€
 int Area2(const tPointi& a, const tPointi& b, const tPointi& c) {
     return (b[X] - a[X]) * (c[Y] - a[Y]) -
         (c[X] - a[X]) * (b[Y] - a[Y]);
 }
 
-// ÅĞ¶Ïµã c ÔÚÏòÁ¿ ab µÄ×ó±ß
+// åˆ¤æ–­ç‚¹ c åœ¨å‘é‡ ab çš„å·¦è¾¹
 bool Left(const tPointi& a, const tPointi& b, const tPointi& c) {
     return Area2(a, b, c) > 0;
 }
 
-// ÅĞ¶Ïµã c ÔÚÏòÁ¿ ab µÄ×ó±ß»òÆäÉÏ
+// åˆ¤æ–­ç‚¹ c åœ¨å‘é‡ ab çš„å·¦è¾¹æˆ–å…¶ä¸Š
 bool LeftOn(const tPointi& a, const tPointi& b, const tPointi& c) {
     return Area2(a, b, c) >= 0;
 }
 
-// µã a, b, c Èıµã¹²Ïß
+// ç‚¹ a, b, c ä¸‰ç‚¹å…±çº¿
 bool Collinear(const tPointi& a, const tPointi& b, const tPointi& c) {
     return Area2(a, b, c) == 0;
 }
 
-// Ïß¶Î ab Óë cd Ç¡µ±Ïà½»
+// çº¿æ®µ ab ä¸ cd æ°å½“ç›¸äº¤
 bool IntersectProp(const tPointi& a, const tPointi& b, const tPointi& c, const tPointi& d) {
     if (Collinear(a, b, c) || Collinear(a, b, d) ||
         Collinear(c, d, a) || Collinear(c, d, b))
@@ -41,7 +41,7 @@ bool IntersectProp(const tPointi& a, const tPointi& b, const tPointi& c, const t
         (Left(c, d, a) ^ Left(c, d, b));
 }
 
-// µã c ÔÚÏß¶Î ab ÉÏ
+// ç‚¹ c åœ¨çº¿æ®µ ab ä¸Š
 bool Between(const tPointi& a, const tPointi& b, const tPointi& c) {
     if (!Collinear(a, b, c))
         return false;
@@ -53,8 +53,8 @@ bool Between(const tPointi& a, const tPointi& b, const tPointi& c) {
         ((a[Y] >= c[Y]) && (c[Y] >= b[Y]));
 }
 
-// ÅĞ¶ÏÏß¶Î ab Óë cd ÊÇ·ñÏà½»
-// ·µ»ØÖµÎª 2 ÊÇÇ¡µ±Ïà½», 1 ÊÇ·ÇÇ¡µ±µÄÏà½», 0 ÊÇ²»Ïà½»
+// åˆ¤æ–­çº¿æ®µ ab ä¸ cd æ˜¯å¦ç›¸äº¤
+// è¿”å›å€¼ä¸º 2 æ˜¯æ°å½“ç›¸äº¤, 1 æ˜¯éæ°å½“çš„ç›¸äº¤, 0 æ˜¯ä¸ç›¸äº¤
 int Intersect(const tPointi& a, const tPointi& b, const tPointi& c, const tPointi& d) {
     if (IntersectProp(a, b, c, d))
         return 2;
@@ -78,7 +78,7 @@ int Polygon::AreaPoly2() {
     return sum;
 }
 
-// ÅĞ¶ÏÏß¶Î ab ²»Óë¶à±ßĞÎµÄ±ßÏà½»
+// åˆ¤æ–­çº¿æ®µ ab ä¸ä¸å¤šè¾¹å½¢çš„è¾¹ç›¸äº¤
 bool Polygon::Diagonalie(const tVertex& a, const tVertex& b) const {
     tVertex c, c1;
     c = vertices;
@@ -93,25 +93,25 @@ bool Polygon::Diagonalie(const tVertex& a, const tVertex& b) const {
     return true;
 }
 
-// ÅĞ¶ÏÏß¶Î ab ÔÚ¶à±ßĞÎÄÚ²¿
+// åˆ¤æ–­çº¿æ®µ ab åœ¨å¤šè¾¹å½¢å†…éƒ¨
 bool Polygon::InCone(const tVertex& a, const tVertex& b) const {
     tVertex a0, a1;
     a1 = a->next;
     a0 = a->prev;
-    // Èô a ÊÇÍ¹µã
+    // è‹¥ a æ˜¯å‡¸ç‚¹
     if (LeftOn(a->v, a1->v, a0->v))
         return Left(a->v, b->v, a0->v) &&
         Left(b->v, a->v, a1->v);
-    // Èô a ÊÇ°¼µã
+    // è‹¥ a æ˜¯å‡¹ç‚¹
     else
         return !(LeftOn(a->v, b->v, a1->v) &&
             LeftOn(b->v, a->v, a0->v));
 }
-// ÅĞ¶ÏÏß¶Î ab ÊÇ²»ÊÇ¶à±ßĞÎµÄ¶Ô½ÇÏß
+// åˆ¤æ–­çº¿æ®µ ab æ˜¯ä¸æ˜¯å¤šè¾¹å½¢çš„å¯¹è§’çº¿
 bool Polygon::Diagonal(const tVertex& a, const tVertex& b) const {
     return InCone(a, b) && InCone(b, a) && Diagonalie(a, b);
 }
-// ³õÊ¼»¯¶ú¶äÏà¹ØĞÅÏ¢
+// åˆå§‹åŒ–è€³æœµç›¸å…³ä¿¡æ¯
 void Polygon::EarInit() {
     tVertex v0, v1, v2;
     v1 = vertices;
@@ -122,11 +122,11 @@ void Polygon::EarInit() {
         v1 = v1->next;
     } while (v1 != vertices);
 }
-// ´òÓ¡¶Ô½ÇÏß
+// æ‰“å°å¯¹è§’çº¿
 void Polygon::PrintDiagonal(const tVertex& a, const tVertex& b) const {
     printf("%d %d\n", a->vnum, b->vnum);
 }
-// ÇĞ¶ú¶äÈı½ÇÆÊ·Ö
+// åˆ‡è€³æœµä¸‰è§’å‰–åˆ†
 void Polygon::Triangulate() {
     tVertex v0, v1, v2, v3, v4;
     int n = nvertices;
@@ -150,7 +150,7 @@ void Polygon::Triangulate() {
         } while (v2 != vertices);
     }
 }
-// ¶ÁÈë¶à±ßĞÎµã
+// è¯»å…¥å¤šè¾¹å½¢ç‚¹
 void Polygon::ReadVertices() {
     head = NULL;
     int x, y;
@@ -172,7 +172,7 @@ void Polygon::ReadVertices() {
     nvertices = pInput.size();
     vertices = head;
 }
-// ×ø±ê±ä»»£¬Ê¹ÆäÊÊÓ¦ÓÚ opencv ×÷Í¼
+// åæ ‡å˜æ¢ï¼Œä½¿å…¶é€‚åº”äº opencv ä½œå›¾
 void Polygon::CoordinatesTransformation() {
     double interspace = w / 5.0;
     maxCoor.first -= minCoor.first;
