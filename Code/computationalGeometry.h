@@ -47,20 +47,20 @@ public:
     tVertex next, prev;
 };
 void MyLine(Mat& img, const Point& start, const Point& end, const Scalar& color);
-// Èı½ÇĞÎ abc ÓĞÏòÃæ»ıµÄÁ½±¶
+// ä¸‰è§’å½¢ abc æœ‰å‘é¢ç§¯çš„ä¸¤å€
 int Area2(const tPointi& a, const tPointi& b, const tPointi& c);
-// ÅĞ¶Ïµã c ÔÚÏòÁ¿ ab µÄ×ó±ß
+// åˆ¤æ–­ç‚¹ c åœ¨å‘é‡ ab çš„å·¦è¾¹
 bool Left(const tPointi& a, const tPointi& b, const tPointi& c);
-// ÅĞ¶Ïµã c ÔÚÏòÁ¿ ab µÄ×ó±ß»òÆäÉÏ
+// åˆ¤æ–­ç‚¹ c åœ¨å‘é‡ ab çš„å·¦è¾¹æˆ–å…¶ä¸Š
 bool LeftOn(const tPointi& a, const tPointi& b, const tPointi& c);
-// µã a, b, c Èıµã¹²Ïß
+// ç‚¹ a, b, c ä¸‰ç‚¹å…±çº¿
 bool Collinear(const tPointi& a, const tPointi& b, const tPointi& c);
-// Ïß¶Î ab Óë cd Ç¡µ±Ïà½»
+// çº¿æ®µ ab ä¸ cd æ°å½“ç›¸äº¤
 bool IntersectProp(const tPointi& a, const tPointi& b, const tPointi& c, const tPointi& d);
-// µã c ÔÚÏß¶Î ab ÉÏ
+// ç‚¹ c åœ¨çº¿æ®µ ab ä¸Š
 bool Between(const tPointi& a, const tPointi& b, const tPointi& c);
-// ÅĞ¶ÏÏß¶Î ab Óë cd ÊÇ·ñÏà½»
-// ·µ»ØÖµÎª 2 ÊÇÇ¡µ±Ïà½», 1 ÊÇ·ÇÇ¡µ±µÄÏà½», 0 ÊÇ²»Ïà½»
+// åˆ¤æ–­çº¿æ®µ ab ä¸ cd æ˜¯å¦ç›¸äº¤
+// è¿”å›å€¼ä¸º 2 æ˜¯æ°å½“ç›¸äº¤, 1 æ˜¯éæ°å½“çš„ç›¸äº¤, 0 æ˜¯ä¸ç›¸äº¤
 int Intersect(const tPointi& a, const tPointi& b, const tPointi& c, const tPointi& d);
 
 class Polygon {
@@ -80,23 +80,23 @@ public:
         maxCoor = { -INF, -INF };
         minCoor = { INF, INF };
     }
-    // ¶à±ßĞÎÃæ»ıµÄÁ½±¶
+    // å¤šè¾¹å½¢é¢ç§¯çš„ä¸¤å€
     int AreaPoly2();
-    // ÅĞ¶ÏÏß¶Î ab ²»Óë¶à±ßĞÎµÄ±ßÏà½»
+    // åˆ¤æ–­çº¿æ®µ ab ä¸ä¸å¤šè¾¹å½¢çš„è¾¹ç›¸äº¤
     bool Diagonalie(const tVertex& a, const tVertex& b) const;
-    // ÅĞ¶ÏÏß¶Î ab ÔÚ¶à±ßĞÎÄÚ²¿
+    // åˆ¤æ–­çº¿æ®µ ab åœ¨å¤šè¾¹å½¢å†…éƒ¨
     bool InCone(const tVertex& a, const tVertex& b) const;
-    // ÅĞ¶ÏÏß¶Î ab ÊÇ²»ÊÇ¶à±ßĞÎµÄ¶Ô½ÇÏß
+    // åˆ¤æ–­çº¿æ®µ ab æ˜¯ä¸æ˜¯å¤šè¾¹å½¢çš„å¯¹è§’çº¿
     bool Diagonal(const tVertex& a, const tVertex& b) const;
-    // ³õÊ¼»¯¶ú¶äÏà¹ØĞÅÏ¢
+    // åˆå§‹åŒ–è€³æœµç›¸å…³ä¿¡æ¯
     void EarInit();
-    // ´òÓ¡¶Ô½ÇÏß
+    // æ‰“å°å¯¹è§’çº¿
     void PrintDiagonal(const tVertex& a, const tVertex& b) const;
-    // ÇĞ¶ú¶äÈı½ÇÆÊ·Ö
+    // åˆ‡è€³æœµä¸‰è§’å‰–åˆ†
     void Triangulate();
-    // ¶ÁÈë¶à±ßĞÎµã£¬ÖØµãÈ¥ÖØ
+    // è¯»å…¥å¤šè¾¹å½¢ç‚¹ï¼Œé‡ç‚¹å»é‡
     void ReadVertices();
-    // ×ø±ê±ä»»£¬Ê¹ÆäÊÊÓ¦ÓÚ opencv ×÷Í¼
+    // åæ ‡å˜æ¢ï¼Œä½¿å…¶é€‚åº”äº opencv ä½œå›¾
     void CoordinatesTransformation();
 };
 
